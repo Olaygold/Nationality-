@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Countries List with Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .country-list {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+
+        .country-list th, .country-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .country-list th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .country-item {
+            display: table-row;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>African Countries with Capitals and Calling Codes</h1>
+    <div class="search-container">
+        <input type="text" id="searchBox" class="search-box" placeholder="Search for a country...">
+    </div>
+
+    <table class="country-list">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Calling Code</th>
+            </tr>
+        </thead>
+        <tbody id="countryTable">
+            <tr class="country-item">
+                <td>Algeria</td>
+                <td>Algiers</td>
+                <td>+213</td>
+            </tr>
+            <tr class="country-item">
+                <td>Angola</td>
+                <td>Luanda</td>
+                <td>+244</td>
+            </tr>
+            <tr class="country-item">
+                <td>Benin</td>
+                <td>Porto-Novo</td>
+                <td>+229</td>
+            </tr>
+            <tr class="country-item">
+                <td>Botswana</td>
+                <td>Gaborone</td>
+                <td>+267</td>
+            </tr>
+            <tr class="country-item">
+                <td>Burkina Faso</td>
+                <td>Ouagadougou</td>
+                <td>+226</td>
+            </tr>
+            <tr class="country-item">
+                <td>Cameroon</td>
+                <td>Yaoundé</td>
+                <td>+237</td>
+            </tr>
+            <tr class="country-item">
+                <td>Chad</td>
+                <td>N'Djamena</td>
+                <td>+235</td>
+            </tr>
+            <tr class="country-item">
+                <td>Egypt</td>
+                <td>Cairo</td>
+                <td>+20</td>
+            </tr>
+            <tr class="country-item">
+                <td>Ethiopia</td>
+                <td>Addis Ababa</td>
+                <td>+251</td>
+            </tr>
+            <tr class="country-item">
+                <td>Ghana</td>
+                <td>Accra</td>
+                <td>+233</td>
+            </tr>
+            <tr class="country-item">
+                <td>Kenya</td>
+                <td>Nairobi</td>
+                <td>+254</td>
+            </tr>
+            <tr class="country-item">
+                <td>Morocco</td>
+                <td>Rabat</td>
+                <td>+212</td>
+            </tr>
+            <tr class="country-item">
+                <td>Nigeria</td>
+                <td>Abuja</td>
+                <td>+234</td>
+            </tr>
+            <tr class="country-item">
+                <td>South Africa</td>
+                <td>Pretoria</td>
+                <td>+27</td>
+            </tr>
+            <tr class="country-item">
+                <td>Tunisia</td>
+                <td>Tunis</td>
+                <td>+216</td>
+            </tr>
+            <!-- Add more African countries as needed -->
+        </tbody>
+    </table>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const countryTable = document.getElementById('countryTable');
+
+        searchBox.addEventListener('input', () => {
+            const searchTerm = searchBox.value.toLowerCase();
+            const rows = countryTable.getElementsByClassName('country-item');
+
+            for (let row of rows) {
+                const countryName = row.cells[0].textContent.toLowerCase();
+                row.classList.toggle('hidden', !countryName.includes(searchTerm));
+            }
+        });
+    </script>
+</body>
+</html>
